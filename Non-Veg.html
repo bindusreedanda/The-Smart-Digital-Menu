@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f892;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #ffcc99;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ff5722;
+        }
+
+        .header {
+            text-align: center;
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 255, 255);
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+            color: #ff5722;
+        }
+
+        .header p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .header button {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #e64a19;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .menu-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-card .content {
+            padding: 15px;
+        }
+
+        .menu-card h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .menu-card p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .menu-card .price {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .menu-card .add-to-cart {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 5px;
+            border: none;
+            border-radius: 1px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            display: block;
+            margin: 0;
+        }
+
+        .menu-card .add-to-cart:hover {
+            background-color: #e64a19;
+        }
+
+        /* Sidebar Styles */
+        #cart-sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 300px;
+            background-color: #ffcc99;
+            padding: 20px;
+            color: #333;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+            z-index: 10;
+            box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #cart-sidebar:not(.hidden) {
+            transform: translateX(0);
+        }
+
+        #cart-sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        #cart-items {
+            margin-top: 20px;
+        }
+
+        #cart-items h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        #cart-items .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        #cart-items .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        #cart-items .cart-item div {
+            flex-grow: 1;
+        }
+
+        #cart-items .cart-item h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        #cart-items .cart-item p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        #cart-items .cart-item .controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #cart-items .cart-item button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #cart-items .cart-item button:hover {
+            background-color: #e64a19;
+        }
+
+        #total-price-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #total-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #buy-now {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #buy-now:hover {
+            background-color: #e64a19;
+        }
+
+        .sidebar {
+        width: 300px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background: #f8f9fa;
+        box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .close-btn {
+        font-size: 20px;
+        color: #ff4d4d;
+        text-decoration: none;
+        float: right;
+        margin-bottom: 10px;
+    }
+
+    #customer-details {
+        margin-top: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    #total-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ed0c10;
+        margin-top: 15px;
+    }
+
+    #buy-now {
+        width: 100%;
+        padding: 12px;
+        background: #f15f0b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #buy-now:hover {
+        background: #218838;
+    }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar">
+    <span><h1>The Smart Digital Menu </h1></span>
+    <div>
+        <a href="1st page.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Food Menu.html">Food Menu</a>
+        <a href="Services.html">Services</a>
+        <a href="Contact Us.html">Contact</a>
+    </div>
+</div>
+
+<center><h1>Non-Veg Starters</h1></center>
+<div class="menu-container">
+    <div class="menu-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sDw3oGyGWNhvbEOv6qXF9IcgisRdBBgZvg&s" alt="Chicken Spring Rolls">
+        <div class="content">
+            <h3>Chicken Spring Rolls</h3>
+            <p>These crispy, golden chicken spring rolls are packed with flavorful filling.</p>
+            <div class="price">199/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Chicken Spring Rolls', 199, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sDw3oGyGWNhvbEOv6qXF9IcgisRdBBgZvg&s')">Add To Cart</button></center>
+        </div>
+    </div>
+
+    <div class="menu-card">
+        <img src="https://sinfullyspicy.com/wp-content/uploads/2022/07/4-5.jpg" alt="Fish and Chicken Pakora">
+        <div class="content">
+            <h3>Fish and Chicken Pakora</h3>
+            <p>Golden Fish and Chicken Pakoras are the ultimate fusion of flavors, perfect for any occasion.</p>
+            <div class="price">220/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Fish and Chicken Pakora', 220, 'https://sinfullyspicy.com/wp-content/uploads/2022/07/4-5.jpg')">Add To Cart</button></center>
+        </div>
+    </div>
+
+    <div class="menu-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6EL_djQ0dk2q4eNgFDLXulZtY3UbO0Wk-BzToeUjCgK84QMuR" alt="Chilli Prawns">
+        <div class="content">
+            <h3>Chilli Prawns</h3>
+            <p>Spicy, tangy, and irresistibly flavorful, Chilli Prawns are the perfect crowd-pleasing dish!</p>
+            <div class="price">210/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Chilli Prawns', 210, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6EL_djQ0dk2q4eNgFDLXulZtY3UbO0Wk-BzToeUjCgK84QMuR')">Add To Cart</button></center>
+        </div>
+    </div>
+
+    <div class="menu-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-cxOC3gRDq-E8q4jNTLsfArjoGvNwfqJyaw&s" alt="Chicken Manchurian">
+        <div class="content">
+            <h3>Chicken Manchurian</h3>
+            <p>Chicken Manchurian is a delightful fusion of crispy chicken and a tangy, savory sauce, perfect for any celebration!</p>
+            <div class="price">200/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Chicken Manchurian', 200, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-cxOC3gRDq-E8q4jNTLsfArjoGvNwfqJyaw&s')">Add To Cart</button></center>
+        </div>
+    </div>
+</div>
+
+<center><h1>Mains</h1></center>
+<div class="menu-container" id="menu">
+    <div class="menu-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWfR0Xy2rfn8bVYzKZ5D6ufBcjO4MeIgLYVw&s" alt="Chicken Biryani">
+        <div class="content">
+            <h3>Chicken Biryani</h3>
+            <p>These delicious, tasty chicken biryani are packed with flavorful filling.</p>
+            <div class="price">280/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Chicken Biryani', 280, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWfR0Xy2rfn8bVYzKZ5D6ufBcjO4MeIgLYVw&s')">Add To Cart</button></center>
+        </div>
+    </div>
+
+    <div class="menu-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1N9VgsVRY1mFhlTksrz1qtaVmJ6YyvEu-Cw&s" alt="Mutton Biryani">
+        <div class="content">
+            <h3>Mutton Biryani</h3>
+            <p>These delicious, tasty mutton biryani are packed with flavorful filling.</p>
+            <div class="price">450/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Mutton Biryani', 450, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1N9VgsVRY1mFhlTksrz1qtaVmJ6YyvEu-Cw&s')">Add To Cart</button></center>
+        </div>
+    </div>
+
+    <div class="menu-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThh2YMVg7iySZhEBVnSQY3MQIy-cndV3sfew&s" alt="Prawn Biryani">
+        <div class="content">
+            <h3>Prawn Biryani</h3>
+            <p>These delicious, tasty prawn biryani are packed with flavorful filling.</p>
+            <div class="price">330/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Prawn Biryani', 330, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThh2YMVg7iySZhEBVnSQY3MQIy-cndV3sfew&s')">Add To Cart</button></center>
+        </div>
+    </div>
+
+    <div class="menu-card">
+        <img src="https://i.pinimg.com/736x/3d/5f/04/3d5f0438eccd828296307ab954a52128.jpg" alt="Fish Biryani">
+        <div class="content">
+            <h3>Fish Biryani</h3>
+            <p>These delicious, tasty fish biryani are packed with flavorful filling.</p>
+            <div class="price">420/-</div>
+            <center><button class="add-to-cart" onclick="addToCart('Fish Biryani', 420, 'https://i.pinimg.com/736x/3d/5f/04/3d5f0438eccd828296307ab954a52128.jpg')">Add To Cart</button></center>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<div id="cart-sidebar" class="hidden">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()"><i class="fas fa-times"></i></a>
+    
+    <div id="cart-items">
+        <h2>Your Selected Items</h2>
+        <!-- Cart items will be dynamically added here -->
+    </div>
+
+    <!-- Customer Details -->
+    <div id="customer-details">
+        <h3>Customer Details</h3>
+        <input type="text" id="customer-name" placeholder="Enter Your Name" required>
+        <input type="tel" id="customer-phone" placeholder="Enter Your Phone Number" required>
+        <input type="number" id="customer-table" placeholder="Enter Table Number" required>
+    </div>
+
+    <div id="total-price-section">
+        <h3 id="total-price">₹0</h3>
+        <button id="buy-now" onclick="placeOrder()">Order Now</button>
+    </div>
+</div>
+
+<script src="cart.js"></script>
+</body>
+</html>

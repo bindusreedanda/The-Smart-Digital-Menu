@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #ffcc99;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ff5722;
+        }
+        .services {
+            max-width: 1100px;
+            margin: auto;
+        }
+        .sub-heading {
+            color: orange;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        .heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        .service-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+        .service-box img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .service-box h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .service-box p {
+            color: gray;
+            font-size: 14px;
+        }
+        .service-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s, color 0.3s;
+        }
+
+        .service-box:hover {
+            background-color: orange;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .service-box:hover h2,
+        .service-box:hover p {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span>The Smart Digital Menu </span>
+        <div>
+        <a href="1st page.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Food Menu.html">Food Menu</a>
+        <a href="#">Services</a>
+        <a href="Contact Us.html">Contact</a>
+        </div>
+    </div>
+    <section class="services">
+        <h3 class="sub-heading">Our Services</h3>
+        <h1 class="heading">Explore Our Services</h1>
+        <br>
+        <div class="services-container">
+            <div class="service-box">
+                <img src="https://www.eqmarketing.hu/wp-content/uploads/2014/04/kerekvagyszogletes1-245x245.jpg" alt="Master Chefs">
+                <h2>Master Chefs</h2>
+                <p>A Master Chef in a restaurant is a highly skilled culinary expert responsible for overseeing the kitchen, creating exceptional dishes, and ensuring food quality. </p>
+            </div>
+            <div class="service-box">
+                <img src="https://w7.pngwing.com/pngs/148/474/png-transparent-fast-food-cafe-restaurant-computer-icons-desktop-restaurant-food-text-orange.png" alt="Quality Food">
+                <h2>Quality Food</h2>
+                <p>Quality Food refers to fresh, well-prepared, and nutritious meals that meet high standards of taste, hygiene, and presentation.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://play-lh.googleusercontent.com/eEWX4j2qgIA_J7NlG-a2PGYAyEOSxmjHZvo8ECG6Ets9GqDmG7KuHeGq9LhIAwiHWeI=w240-h480-rw" alt="Online Order">
+                <h2>Online Order</h2>
+                <p>Online Order allows customers to conveniently place food orders through a website or mobile app.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR__M-pxT3U4d_u1gZAhsUCOX4cE5L6TqjbAtHQsInfsNdcUkXK" alt="24/7 Service">
+                <h2>24/7 Service</h2>
+                <p>24/7 Service ensures that customers can access food and assistance at any time, day or night.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

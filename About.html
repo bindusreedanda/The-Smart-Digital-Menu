@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffcc99;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: #ff5722;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            gap: 50px;
+            padding: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 600px;
+        }
+
+        .about {
+            color: orange;
+            font-style: italic;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #222;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: orange;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            font-size: 18px;
+            color: #222;
+        }
+
+        .number {
+            font-size: 40px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        /* Read More Button */
+        .btn {
+            background-color: orange;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #e69500;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .scroll-top:hover {
+            background-color: #e69500;
+        }
+    </style>
+</head>
+<body>
+ <!-- Navbar -->
+    <div class="navbar">
+        <span style="font-size: 20px; font-weight: bold;">The Smart Digital Menu </span>
+        <div>
+            <a href="1st page.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Food Menu.html">Food Menu</a>
+            <a href="Services.html">Services</a>
+            <a href="Contact Us.html">Contact</a>
+        </div>
+    </div>
+    <br>
+    <center><h1>About Us</h1></center>
+    <!-- Main Section -->
+    <section class="container">
+        <!-- Gallery Section -->
+        <div class="gallery">
+            <img src="https://thethekedaar.in/blogs/wp-content/uploads/2021/03/Restaurant-Interior.jpg" alt="Restaurant Interior">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUMiXYr9ZyYMwftfQvPa7jXqIEmk0EbzTGlA&s" alt="Dining Area">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5dYoivBbHkJSusMaoDyXjanexF3shS2UBbA&s" alt="Salad Dish">
+            <img src="https://content.jdmagicbox.com/comp/guntur/v5/9999px863.x863.220205224514.q5v5/catalogue/zamindaar-dhaba-guntur-0pg7avxwjz.jpg" alt="Food Platter">
+        </div>
+        <!-- Content Section -->
+        <div class="content">
+            
+            <h2>Welcome to <span class="highlight">🍴 DBS Food</span></h2>
+            <p>Where flavor meets passion! Our mission is to bring you the freshest, most delicious meals made with love and care. 
+                At DBS Food, we believe that food is not just about taste—it's about creating memorable experiences.</p>
+            <p>With high-quality ingredients and a commitment to exceptional service, we're proud to be your go-to spot for satisfying 
+                cravings and sharing joy through food. Come taste the difference at DBS Food—where every meal is a celebration!</p>
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">15</span> Years of <strong>EXPERIENCE</strong>
+                </div>
+                <div class="stat">
+                    <span class="number">50</span> Popular <strong>MASTER CHEFS</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Master Chefs Section -->
+        <section style="text-align: center; padding: 50px;">
+            <p style="color: orange; font-style: italic; font-size: 18px; font-weight: bold;">Team Members</p>
+            <h2 style="font-size: 30px; color: #222; font-weight: bold;">Our Master Chefs</h2>
+    
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px;">
+                <div style="text-align: center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr22YH1hkODykPmyzXyF-YWNdjWiz_uddIyg&s" alt="Chef 1" 
+                         style="width: 200px; height: 200px; border-radius: 50%;">
+                    <h3 style="color: #222; font-size: 18px; font-weight: bold;">Sanjeev Kapoor</h3>
+                    <p style="color: #555;">Masterchef</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <img src="https://crm-the-placement-international-group-ld.sfo2.digitaloceanspaces.com/store/picture/data/content-aef74be562a4f2ba4dc81bfea02eebef.jpg" alt="Chef 2" 
+                         style="width: 200px; height: 200px; border-radius: 50%;">
+                    <h3 style="color: #222; font-size: 18px; font-weight: bold;">Nirupama</h3>
+                    <p style="color: #555;">Assistant Chef</p>
+                </div>
+    
+                <div style="text-align: center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLLy909Xe6w_FrZAWaUsh3XZ-A4r7aIteiJA&s" alt="Chef 3" 
+                         style="width: 200px; height: 200px; border-radius: 50%;">
+                    <h3 style="color: #222; font-size: 18px; font-weight: bold;">Sanjay Thumma</h3>
+                    <p style="color: #555;">Vah-Chef</p>
+                </div>
+    
+                <div style="text-align: center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAkSJcOiAjbIS-zIRQKN9ikZ0jGy-Gb-LhtQ&s" alt="Chef 4" 
+                         style="width: 200px; height: 200px; border-radius: 50%;">
+                    <h3 style="color: #222; font-size: 18px; font-weight: bold;">Ramya</h3>
+                    <p style="color: #555;">Chef</p>
+                </div>
+            </div>
+        </section>
+</body>
+</html>

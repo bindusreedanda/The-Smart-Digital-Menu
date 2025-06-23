@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #ffcc99;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ff5722;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin: 30px 0;
+            color: #ff5722;
+        }
+
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding: 40px;
+            background: white;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-details {
+            text-align: left;
+            max-width: 350px;
+            font-size: 18px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item h3 {
+            color: #ff5722;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .icon {
+            font-size: 22px;
+            color: #ff5722;
+        }
+
+        iframe {
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #ffedd5;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span style="font-size: 22px; font-weight: bold;">The Smart Digital Menu </span>
+        <div>
+            <a href="1st page.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Food Menu.html">Food Menu</a>
+            <a href="Services.html">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <h1>Contact Us</h1>
+
+    <div class="content-wrapper">
+        <section class="contact-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4482.319741195741!2d77.27818577473788!3d28.661056076527668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfc792e4cda97%3A0x6e699248d4f87e68!2sGandhi%20Nagar%2C%20New%20Delhi%2C%20Delhi%20110031!5e0!3m2!1sen!2sin!4v1616972544201!5m2!1sen!2sin" 
+                width="450" height="300" allowfullscreen="">
+            </iframe>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="icon">📞</span>
+                    <h3>Contact</h3>
+                </div>
+                <p>+91 345 67890</p>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <h3>Address</h3>
+                </div>
+                <p>Gandhi Nagar, New Delhi, India</p>
+                <div class="contact-item">
+                    <span class="icon">✉</span>
+                    <h3>Email</h3>
+                </div>
+                <p>bindusree0274@gmail.com</p>
+                <div class="contact-item">
+                    <span class="icon">⏳</span>
+                    <h3>Opening Hours</h3>
+                </div>
+                <p>Monday - Saturday: 09AM - 09PM</p>
+                <p>Sunday: 10AM - 08PM</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 The Smart Digital Menu  | All Rights Reserved
+    </footer>
+
+</body>
+</html>

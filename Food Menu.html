@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_g0rWf5vu5il4jQNXOsYNn22zgs9dvLiBQ&s'); /* Replace with the path to your image */
+            background-size: cover;
+            background-position: center;
+            color: #000;
+            padding: 60px 20px 20px; /* Adjusted for fixed navbar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: rgba(255, 204, 153, 0.9); /* Semi-transparent navbar */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed; /* Keeps navbar fixed at the top */
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensures navbar stays on top */
+        }
+         .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: #ff5722;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px; /* Increased gap for spacing */
+            max-width: 1200px;
+            margin-top: 100px; /* Space between navbar and content */
+            justify-items: center; /* Centers items horizontally */
+        }
+        .menu-item {
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 15px auto;
+            cursor: pointer;
+        }
+        .menu-item .content {
+            padding: 15px;
+            text-align: center;
+        }
+        .menu-item .content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .menu-item .content .stars {
+            color: #f4b400;
+            margin-bottom: 10px;
+        }
+        .menu-item .content .view {
+            background-color: #f4b400;
+            border: none;
+            padding: 8px 15px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item .content .view:hover {
+            background-color: #d49d00;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span>The Smart Digital Menu </span>
+        <div>
+            <a href="1st page.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="#menu">Food Menu</a>
+            <a href="Services.html">Services</a>
+            <a href="Contact Us.html">Contact</a>
+        </div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <a href="Veg.html">
+                <img src="https://t4.ftcdn.net/jpg/02/75/39/23/360_F_275392381_9upAWW5Rdsa4UE0CV6gRu2CwUETjzbKy.jpg" alt="Veg">
+            </a>
+            <div class="content">
+                <h3>Veg</h3>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;</div>
+                <a href="Veg.html"><button class="view">View</button></a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="Non-Veg.html">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRChYz-7bApoarm2qyr26McX1QtjXQ_J3iCAw&s" alt="Non-Veg">
+            </a>
+            <div class="content">
+                <h3>Non-Veg</h3>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <a href="Non-Veg.html"><button class="view">View</button></a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="Desserts.html">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/no-bake-desserts-cheesecake-1654111255.jpeg?crop=1.00xw:0.834xh;0,0.152xh&resize=980:*" alt="Desserts">
+            </a>
+            <div class="content">
+                <h3>Desserts</h3>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <a href="Desserts.html"><button class="view">View</button></a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="Drinks.html">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4961UZXiynNnttYpNAB0xDi0hZ3Wm1QPeNw&s" alt="Drinks">
+            </a>
+            <div class="content">
+                <h3>Drinks</h3>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;</div>
+                <a href="Drinks.html"><button class="view">View</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
